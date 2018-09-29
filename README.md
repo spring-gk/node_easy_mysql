@@ -18,18 +18,11 @@
 
 #### Mysql模块中直接使用生成的sql
 -------------
-	var mysql      = require('mysql');
-	var connection = mysql.createConnection({
-	  host     : 'localhost',
-	  user     : 'me',
-	  password : 'secret',
-	  database : 'my_db'
+	var mysql      = require('./library/mysql');
+	mysql.doSqlCmdAsync(sql).then(function(res){
+		//TODO
+	}).catch(function(err){
+		//TODO
 	});
-
-	connection.connect();
-	connection.query(sql, function (error, results, fields) {
-	  //TODO
-	});
-	connection.end();
 
 更多用法请参考：https://github.com/mysqljs/mysql
