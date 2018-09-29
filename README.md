@@ -1,5 +1,7 @@
 ## NODE Mysql模块 简易版 ORM
 
+参考Laravel 写法编写，可满足一般sql需求
+
 #### 基本使用方法如下：
 -------------
 	var orm_func = require('./library/orm');
@@ -13,3 +15,21 @@
 	//var sql = orm_func.useTable("test").insert('qqqq',111);
 	var sql = orm_func.useTable("test").insertObj({xx:11,ww:22});
 	console.log(sql);
+
+#### Mysql模块中直接使用生成的sql
+-------------
+	var mysql      = require('mysql');
+	var connection = mysql.createConnection({
+	  host     : 'localhost',
+	  user     : 'me',
+	  password : 'secret',
+	  database : 'my_db'
+	});
+
+	connection.connect();
+	connection.query(sql, function (error, results, fields) {
+	  //TODO
+	});
+	connection.end();
+
+更多用法请参考：https://github.com/mysqljs/mysql
