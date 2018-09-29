@@ -40,6 +40,7 @@ mysqlPool.on('factoryDestroyError', function(err){
    console.log("factoryDestroyError:",err);   
 });
 
+//执行sql命令
 init.doSqlCmdAsync = function(sql){
     return new Promise(function(resolve,reject){
         mysqlPool.acquire().then(function(client){
