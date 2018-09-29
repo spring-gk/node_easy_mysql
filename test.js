@@ -1,7 +1,3 @@
-# node_mysql_orm
-NODE Mysql模块ORM
-
-使用方法如下：
 var orm_func = require('./library/orm');
 //var sql = orm_func.useTable("test").where('id',1).where('aa','>',1).orWhere('cc','!=',1).delete();
 //var sql = orm_func.useTable("test").where('id',1).where('aa','>',1).orWhere('cc','!=',1).updateObj({xx:11,ww:22});
