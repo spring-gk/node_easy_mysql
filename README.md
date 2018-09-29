@@ -1,7 +1,6 @@
-# node_mysql_orm
-## NODE Mysql模块ORM
+## NODE Mysql模块 简易版 ORM
 
-#### 使用方法如下：
+#### 基本使用方法如下：
 -------------
 	var orm_func = require('./library/orm');
 	//var sql = orm_func.useTable("test").where('id',1).where('aa','>',1).orWhere('cc','!=',1).delete();
