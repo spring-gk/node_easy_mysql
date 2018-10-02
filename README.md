@@ -1,4 +1,4 @@
-## NODE Mysql模块 简易版 ORM
+## NODE Mysql模块 简易版 RBAC
 
 参考Laravel 写法编写，可满足一般sql需求
 
