@@ -1,7 +1,6 @@
 'use strict';
 var mysql = require('mysql'),
-    app_config = require('../../config'),
-    monitor_func = require('./monitor'),//monitor公用函数
+    app_config = require('../config'),
     genericPool = require("generic-pool"),
     init = {};
 
@@ -17,11 +16,11 @@ var mysql_factory = {
     });
      
     client.connect();
-    monitor_func.addLog("mysql_pool_client connected","mysql.log");
+    console.log("mysql_pool_client connected");
     return client;
   },
   destroy: function(client) {
-    monitor_func.addLog("mysql_pool_client destroy","mysql.log");
+    console.log("mysql_pool_client destroy");
     client.end();
   }
 };
@@ -31,12 +30,12 @@ var mysql_opts = {
 };
 var mysqlPool = genericPool.createPool(mysql_factory, mysql_opts);
 mysqlPool.on('factoryCreateError', function(err){
-    monitor_func.addLog("factoryCreateError error:"+JSON.stringify(err),"mysql.log");
+    console.log("factoryCreateError error:"+JSON.stringify(err));
     console.log("factoryCreateError:",err);    
 });
 
 mysqlPool.on('factoryDestroyError', function(err){
-   monitor_func.addLog("factoryDestroyError error:"+JSON.stringify(err),"mysql.log");
+   console.log("factoryDestroyError error:"+JSON.stringify(err));
    console.log("factoryDestroyError:",err);   
 });
 

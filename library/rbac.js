@@ -1,5 +1,6 @@
 'use strict';
-var init = {
+var mysql_func = require('./mysql'),
+    init = {
 	table : "",
 	fields : "*",
 	where_action : [],
@@ -214,7 +215,7 @@ init.limit = function(begin,number){
 }
 
 init.get = function(){
-	return buildGetSql();
+	return this.doSqlCmdAsync(buildGetSql());
 }
 
 init.insert = function(field,value){
@@ -227,30 +228,34 @@ init.insertObj = function(insert_data_obj){
 
 init.create = function(field,value){
 	this.insert_data.push({field:field,value:value});
-	return buildCreateSql();
+	return this.doSqlCmdAsync(buildCreateSql());
 }
 
 init.createObj = function(insert_data_obj){
 	for (var x in insert_data_obj) {
 		this.insert_data.push({field:x,value:insert_data_obj[x]});
 	}
-	return buildCreateSql();
+	return this.doSqlCmdAsync(buildCreateSql());
 }
 
 init.update = function(field,value){
 	this.update_data.push({field:field,value:value});
-	return buildUpdateSql();
+	return this.doSqlCmdAsync(buildUpdateSql());
 }
 
 init.updateObj = function(update_data_obj){
 	for (var x in update_data_obj) {
 		this.update_data.push({field:x,value:update_data_obj[x]});
 	}	
-	return buildUpdateSql();
+	return this.doSqlCmdAsync(buildUpdateSql());
 }
 
 init.delete = function(){
-	return buildDeleteSql();
+	return this.doSqlCmdAsync(buildDeleteSql());
+}
+
+init.doSqlCmdAsync = function(sql){
+    return mysql_func.doSqlCmdAsync(sql);
 }
 
 module.exports=init;
