@@ -1,0 +1,19 @@
+{
+  "name": "node_easy_mysql",
+  "version": "1.0.0",
+  "description": "参考Laravel 写法编写，可满足一般sql需求",
+  "main": "test.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spring-gk/node_easy_mysql.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spring-gk/node_easy_mysql/issues"
+  },
+  "homepage": "https://github.com/spring-gk/node_easy_mysql#readme"
+}
