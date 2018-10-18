@@ -6,7 +6,7 @@ var mysql_func = require('./mysql'),
 	where_action : [],
 	group : [],
 	order : [],
-	limit_begin : 0,
+	limit_begin : "",
 	limit_number : 0,
 	update_data : [],
 	insert_data : [],
@@ -47,7 +47,7 @@ var buildGetSql = function(){
 				}
 			}
 		}
-		if(init.limit_begin){
+		if(init.limit_begin != ""){
 			sql += " LIMIT " + init.limit_begin;
 			if(init.limit_number){
 				sql += "," + init.limit_number;
@@ -157,7 +157,18 @@ var buildDeleteSql = function(){
 	}	
 }
 
-init.useTable = function(tableName){
+
+
+init.useTable = function(tableName){ 
+	this.fields = "*";
+	this.where_action = [];
+	this.group = [];
+	this.order = [];
+	this.limit_begin = 0;
+	this.limit_number = 0;
+	this.update_data = [];
+	this.insert_data = [];
+	this.sql_raw = "";
 	this.table = tableName;
 	return this;
 }
